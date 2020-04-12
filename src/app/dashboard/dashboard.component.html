@@ -1,1 +1,24 @@
-<p>dashboard works!</p>
+<h3 class="mt-3">See the Status of Locality</h3>
+<div class="mt-3">
+  <canvas baseChart
+          [data]="chartData"
+          [options]="chartOptions"
+          [labels]="chartLabels"
+          [chartType]="chartType"
+          [colors]="donutColors"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+</div>
+<div class="total-participants mt-5">
+  <h4 class="text-center">
+    Total Participants: {{areaResult.areaResult.totalParticipation}}
+  </h4>
+</div>
+<div class="progress-bars mb-5">
+
+  <p><ngb-progressbar type="danger" [value]="areaResult.areaResultStat.unwellWithSymptomsPercent"></ngb-progressbar></p>
+  <p><ngb-progressbar type="info" [value]="areaResult.areaResultStat.unwellWithoutSymptomsPercent"></ngb-progressbar></p>
+  <p><ngb-progressbar type="success" [value]="areaResult.areaResultStat.wellPercent"></ngb-progressbar></p>
+  <p><ngb-progressbar type="warning" [value]="100"></ngb-progressbar></p>
+</div>
+
