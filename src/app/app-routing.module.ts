@@ -11,8 +11,11 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
-  }
+    component: DashboardComponent,
+    data: {
+      title: 'Admin Dashboard'
+    }
+  },
 ];
 
 @NgModule({

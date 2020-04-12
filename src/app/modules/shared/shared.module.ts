@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
 
 const MODULES = [
   CommonModule,
@@ -16,12 +17,13 @@ const DIRECTIVES = [
 ];
 
 const COMPONENTS = [
+  HeaderComponent
 ];
 
 @NgModule({
   declarations: [
     ...DIRECTIVES,
-    ...COMPONENTS
+    ...COMPONENTS,
   ],
   imports: [
     ...MODULES
