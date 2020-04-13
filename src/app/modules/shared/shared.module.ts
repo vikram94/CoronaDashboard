@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import {ChartsModule} from 'ng2-charts';
 import { AppInputComponent } from './app-components/app-input/app-input.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 const MODULES = [
   CommonModule,
@@ -13,6 +14,7 @@ const MODULES = [
   ReactiveFormsModule,
   FormsModule,
   ChartsModule,
+  FontAwesomeModule,
   HttpClientModule,
 ];
 

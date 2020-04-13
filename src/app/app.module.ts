@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {CoreModule} from './modules/core/core.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {SharedModule} from './modules/shared/shared.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [

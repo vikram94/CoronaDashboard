@@ -5,6 +5,8 @@ import {AreaResultResponseModel} from '../models/responses/area-result-response.
 import {keys} from 'ts-transformer-keys';
 import {ChartDataSets, ChartOptions} from 'chart.js';
 import {NgbProgressbarConfig} from '@ng-bootstrap/ng-bootstrap';
+import {FormControl} from '@angular/forms';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -32,6 +34,7 @@ export class DashboardComponent implements OnInit {
       }
     }
   };
+  isLoading = false;
   donutColors = [
     {
       backgroundColor: [
@@ -43,15 +46,21 @@ export class DashboardComponent implements OnInit {
   ];
   dataSets: ChartDataSets;
   legend;
+  dateControl = new FormControl();
+  areaControl = new FormControl();
 
   ngOnInit(): void {
     this.setChartLabels();
-    this._pollService.fetchAreaResult({
-      createDate : '2019-12-22 19:56:29',
-      areaId : '5106'
-    }).subscribe(res => {
-      this.areaResult = res;
-      this.setChartData(res.areaResult);
+    this.dateControl.valueChanges.subscribe(value => {
+      this.isLoading = true;
+      this._pollService.fetchAreaResult({
+        createDate : value.toLocaleString(),
+        areaId : '5106'
+      }).pipe(take(1)).subscribe(res => {
+        this.areaResult = res;
+        this.setChartData(res.areaResult);
+        this.isLoading = false;
+      });
     });
   }
 
@@ -71,11 +80,9 @@ export class DashboardComponent implements OnInit {
   }
 
   chartClicked(e: any) {
-    console.log(e);
   }
 
   chartHovered(e: any){
-    console.log(e);
   }
 
 }
