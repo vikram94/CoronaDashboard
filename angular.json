@@ -43,7 +43,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "baseHref": "/corona-360/",
+              "baseHref": "/corona360/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
